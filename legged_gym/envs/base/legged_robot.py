@@ -1,22 +1,19 @@
-from legged_gym import LEGGED_GYM_ROOT_DIR, envs
 import time
-from warnings import WarningMessage
-import numpy as np
 import os
-
-from isaacgym.torch_utils import *
-from isaacgym import gymtorch, gymapi, gymutil
+import time
+from typing import Dict
 
 import torch
-from torch import Tensor
-from typing import Tuple, Dict
+from isaacgym import gymtorch, gymapi
+from isaacgym.torch_utils import *
 
 from legged_gym import LEGGED_GYM_ROOT_DIR
 from legged_gym.envs.base.base_task import BaseTask
-from legged_gym.utils.math import wrap_to_pi
-from legged_gym.utils.isaacgym_utils import get_euler_xyz as get_euler_xyz_in_tensor
 from legged_gym.utils.helpers import class_to_dict
+from legged_gym.utils.isaacgym_utils import get_euler_xyz as get_euler_xyz_in_tensor
+from legged_gym.utils.math import wrap_to_pi
 from .legged_robot_config import LeggedRobotCfg
+
 
 class LeggedRobot(BaseTask):
     def __init__(self, cfg: LeggedRobotCfg, sim_params, physics_engine, sim_device, headless):

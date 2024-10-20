@@ -1,9 +1,10 @@
 
 import sys
+
+import torch
 from isaacgym import gymapi
 from isaacgym import gymutil
-import numpy as np
-import torch
+
 
 # Base class for RL tasks
 class BaseTask():
